@@ -4,6 +4,6 @@
   vars:
     ansible_user: ansible
   tasks:
-    - name: "Include oh-my-zsh"
+    - name: "Include ansible-zsh"
       include_role:
-        name: "oh-my-zsh"
+        name: "ansible-zsh"
