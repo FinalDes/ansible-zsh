@@ -21,7 +21,6 @@
   copy:
     src: '~/.oh-my-zsh/templates/zshrc.zsh-template'
     dest: '~/.zshrc'
-    mode: '0644'
 - name: Replace default zsh plugins
   lineinfile:
     path: ~/.zshrc

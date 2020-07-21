@@ -6,8 +6,3 @@
     path: ~/.zshrc
     regexp: '^plugins'
     line: plugins=(git)
-- name: change user shell to zsh
-  become: true
-  user:
-    name: "{{ ansible_user_id }}"
-    shell: /usr/bin/zsh
