@@ -1,8 +1,25 @@
 ---
 # tasks file for oh-my-zsh
 - import_tasks: base.yml
+# - name: install extra zsh plugins
+#   git:
+#     repo: https://github.com/zsh-users/zsh-autosuggestions
+#     dest: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+#     version: master
+- name: install extra zsh plugins
+  git:
+    repo: "{{ item.name }}"
+    dest: ~/.oh-my-zsh/custom/plugins/{{ item.dest }}
+    version: "master"
+  loop:
+  - name: https://github.com/zsh-users/zsh-autosuggestions.git
+    dest: zsh-autosuggestions
+  - name: https://github.com/zsh-users/zsh-syntax-highlighting.git
+    dest: zsh-syntax-highlighting
+  - name: https://github.com/zsh-users/zsh-completions.git
+    dest: zsh-completions
 - name: Replace default zsh plugins
   lineinfile:
     path: ~/.zshrc
     regexp: '^plugins'
-    line: plugins=(git)
+    line: plugins=(git zsh-autosuggestions zsh-completions zsh-syntax-highlighting)

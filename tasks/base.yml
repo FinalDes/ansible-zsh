@@ -12,7 +12,7 @@
     - zsh
     - vim
 
-- name: clone ohmyzsh repo
+- name: clone oh-my-zsh repo
   git:
     repo: https://github.com/ohmyzsh/ohmyzsh.git
     dest: ~/.oh-my-zsh
