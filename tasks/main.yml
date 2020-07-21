@@ -1,26 +1,6 @@
 ---
 # tasks file for oh-my-zsh
-- name: install git zsh
-  become: true
-  apt:
-    name: "{{ packages }}"
-    state: present
-    update_cache: true
-  vars:
-    packages:
-    - git
-    - zsh
-    - vim
-
-- name: clone ohmyzsh repo
-  git:
-    repo: https://github.com/ohmyzsh/ohmyzsh.git
-    dest: ~/.oh-my-zsh
-- name: zshrc
-  copy:
-    src: '~/.oh-my-zsh/templates/zshrc.zsh-template'
-    dest: '~/.zshrc'
-    mode: '0644'
+- import_tasks: base.yml
 - name: Replace default zsh plugins
   lineinfile:
     path: ~/.zshrc
