@@ -16,6 +16,7 @@
   git:
     repo: https://github.com/ohmyzsh/ohmyzsh.git
     dest: ~/.oh-my-zsh
+    version: master
 - name: zshrc
   copy:
     src: '~/.oh-my-zsh/templates/zshrc.zsh-template'
