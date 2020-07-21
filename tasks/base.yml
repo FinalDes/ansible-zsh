@@ -21,11 +21,7 @@
   copy:
     src: '~/.oh-my-zsh/templates/zshrc.zsh-template'
     dest: '~/.zshrc'
-- name: Replace default zsh plugins
-  lineinfile:
-    path: ~/.zshrc
-    regexp: '^plugins'
-    line: plugins=(git)
+    remote_src: yes
 - name: change user shell to zsh
   become: true
   user:
