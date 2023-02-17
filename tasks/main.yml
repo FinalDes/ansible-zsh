@@ -1,13 +1,14 @@
 ---
 # tasks file for oh-my-zsh
-- import_tasks: base.yml
+- name: Install ZSH and oh-my-zsh
+  ansible.builtin.import_tasks: base.yml
 # - name: install extra zsh plugins
 #   git:
 #     repo: https://github.com/zsh-users/zsh-autosuggestions
 #     dest: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 #     version: master
-- name: install extra zsh plugins
-  git:
+- name: Install extra zsh plugins
+  ansible.builtin.git:
     repo: "{{ item.name }}"
     dest: ~/.oh-my-zsh/custom/plugins/{{ item.dest }}
     version: "master"
@@ -19,7 +20,7 @@
   - name: https://github.com/zsh-users/zsh-completions.git
     dest: zsh-completions
 - name: Replace default zsh plugins
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: ~/.zshrc
     regexp: '^plugins'
     line: plugins=(git zsh-autosuggestions zsh-completions zsh-syntax-highlighting)
